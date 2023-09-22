@@ -149,11 +149,12 @@ semilogy(F,PSDpop);xlim([0 50]);
 title('delta thomson psd')
 
 %% Ploting the NMM
-Y     = permute(Y,[2 1 3]);
+%Y     = permute(Y,[2 1 3]);
 Y11 = Y(Index_pop{1},1,1); Y12 = Y(Index_pop{2},1,1); Y13 = Y(Index_pop{3},1,1); Y14 = Y(Index_pop{4},1,1); Y15 = Y(Index_pop{5},1,1);
 Y21 = Y(Index_pop{1},2,1); Y22 = Y(Index_pop{2},2,1); Y23 = Y(Index_pop{3},2,1); Y24 = Y(Index_pop{4},2,1); Y25 = Y(Index_pop{5},2,1);
 Y31 = Y(Index_pop{1},3,1); Y32 = Y(Index_pop{2},3,1); Y33 = Y(Index_pop{3},3,1); Y34 = Y(Index_pop{4},3,1); Y35 = Y(Index_pop{5},3,1);
-figure
+    figure
+v = Vide
 set(gcf,'Position',[0 750 3000 300]);
 subplot(1,5,1)
 g1  = scatter3(Y11,Y21,Y31,'Or');
