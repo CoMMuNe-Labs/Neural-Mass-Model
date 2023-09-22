@@ -154,7 +154,8 @@ Y11 = Y(Index_pop{1},1,1); Y12 = Y(Index_pop{2},1,1); Y13 = Y(Index_pop{3},1,1);
 Y21 = Y(Index_pop{1},2,1); Y22 = Y(Index_pop{2},2,1); Y23 = Y(Index_pop{3},2,1); Y24 = Y(Index_pop{4},2,1); Y25 = Y(Index_pop{5},2,1);
 Y31 = Y(Index_pop{1},3,1); Y32 = Y(Index_pop{2},3,1); Y33 = Y(Index_pop{3},3,1); Y34 = Y(Index_pop{4},3,1); Y35 = Y(Index_pop{5},3,1);
     figure
-v = Vide
+v = VideoWriter('video_example.avi');
+open(v)
 set(gcf,'Position',[0 750 3000 300]);
 subplot(1,5,1)
 g1  = scatter3(Y11,Y21,Y31,'Or');
@@ -182,8 +183,10 @@ for time = 2:size(Y,3)
     set(g5,'XData',Y15,'YData',Y25,'ZData',Y35);
     drawnow
     pause(0.005)
+    frame = getframe(gcf);
+    writeVideo(v,frame);
 end
-
+close(v);
 %%
 figures = [...
     ...
